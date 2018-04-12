@@ -33,12 +33,16 @@ public class MountainDetailsActivity extends AppCompatActivity {
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
         String message = intent.getStringExtra("mountainnames");
+        String message2 = intent.getStringExtra("mountainheights");
 
         Toast.makeText(getApplicationContext(),message , Toast.LENGTH_LONG).show();
         Log.d("Céline", "jag fick detta "+message);
 
         TextView bergsnamn = (TextView) findViewById(R.id.mountainnames);
         bergsnamn.setText(message);
+
+        TextView bergshojd = (TextView) findViewById(R.id.mountainheights);
+        bergshojd.setText(message2);
     }
 
 }

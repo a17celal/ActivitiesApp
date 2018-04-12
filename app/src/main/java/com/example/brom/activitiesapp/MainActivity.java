@@ -17,9 +17,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
     private String[] mountainLocations = {"Alps","Alps","Alaska"};
-    private String[] mellanRum = {" "};
     private int[] mountainHeights ={4478,4808,6190};
-    String tmpStr10 = String.valueOf(mountainHeights);
+
     // Create ArrayLists from the raw data above and use these lists when populating your ListView.
 
     @Override
@@ -57,14 +56,17 @@ public class MainActivity extends AppCompatActivity {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(MainActivity.this, mountainNames[position] + mellanRum[position] + mountainHeights[position] + mellanRum[position] + mountainLocations[position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, mountainNames[position] + mountainHeights[position]  + mountainLocations[position], Toast.LENGTH_SHORT).show();
 
 
                 Intent intent = new Intent(getApplicationContext(), MountainDetailsActivity.class);
-
                 intent.putExtra("mountainnames", mountainNames[position]);
-
+                intent.putExtra("mountainheights", Integer.toString(mountainHeights[position]));
                 startActivity(intent);
+
+
+
+
             }
         });
         myListView.setAdapter(adapter);
