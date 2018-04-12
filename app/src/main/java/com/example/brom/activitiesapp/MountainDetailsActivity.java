@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MountainDetailsActivity extends AppCompatActivity {
@@ -35,6 +36,9 @@ public class MountainDetailsActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(),message , Toast.LENGTH_LONG).show();
         Log.d("Céline", "jag fick detta "+message);
+
+        TextView bergsnamn = (TextView) findViewById(R.id.mountainnames);
+        bergsnamn.setText(message);
     }
 
 }
