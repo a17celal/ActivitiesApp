@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">ActivitiesApp</string>
+    <string name="app_name">a17celal_assignment3</string>
+    <string name="title_activity_mountain_details">MountainDetailsActivity</string>
 </resources>

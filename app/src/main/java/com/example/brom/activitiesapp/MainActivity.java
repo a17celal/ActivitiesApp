@@ -1,12 +1,25 @@
 package com.example.brom.activitiesapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
     private String[] mountainLocations = {"Alps","Alps","Alaska"};
+    private String[] mellanRum = {" "};
     private int[] mountainHeights ={4478,4808,6190};
+    String tmpStr10 = String.valueOf(mountainHeights);
     // Create ArrayLists from the raw data above and use these lists when populating your ListView.
 
     @Override
@@ -33,5 +46,50 @@ public class MainActivity extends AppCompatActivity {
         // 8. From the MountainDetailsActivity you should have an option to "go back" using an
         //    left arro button. This is done by letting the MainActivity be the parent activity to
         //    MountainDetailsActivity.
+
+
+        List<String> listData = new ArrayList<String>(Arrays.asList(mountainNames));
+
+        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),R.layout.list_item_textview,
+                R.id.my_item_textview, listData);
+
+        ListView myListView = (ListView)findViewById(R.id.my_listview);
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(MainActivity.this, mountainNames[position] + mellanRum[position] + mountainHeights[position] + mellanRum[position] + mountainLocations[position], Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getApplicationContext(), MountainDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
+        myListView.setAdapter(adapter);
+
+
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("Céline", "nu pausar main activity");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("Céline", "nu startar main activity efter en paus");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("Céline", "nu startar main activity");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("Céline", "nu stoppar main activity");
     }
 }
