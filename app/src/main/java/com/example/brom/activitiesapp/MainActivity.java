@@ -59,7 +59,11 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(MainActivity.this, mountainNames[position] + mellanRum[position] + mountainHeights[position] + mellanRum[position] + mountainLocations[position], Toast.LENGTH_SHORT).show();
 
+
                 Intent intent = new Intent(getApplicationContext(), MountainDetailsActivity.class);
+
+                intent.putExtra("mountainnames", mountainNames[position]);
+
                 startActivity(intent);
             }
         });
@@ -92,4 +96,6 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         Log.d("Céline", "nu stoppar main activity");
     }
+
+
 }

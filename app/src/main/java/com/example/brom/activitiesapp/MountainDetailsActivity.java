@@ -1,11 +1,14 @@
 package com.example.brom.activitiesapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 public class MountainDetailsActivity extends AppCompatActivity {
 
@@ -25,6 +28,13 @@ public class MountainDetailsActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Get the Intent that started this activity and extract the string
+        Intent intent = getIntent();
+        String message = intent.getStringExtra("mountainnames");
+
+        Toast.makeText(getApplicationContext(),message , Toast.LENGTH_LONG).show();
+        Log.d("Céline", "jag fick detta "+message);
     }
 
 }
