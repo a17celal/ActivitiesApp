@@ -34,15 +34,19 @@ public class MountainDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String message = intent.getStringExtra("mountainnames");
         String message2 = intent.getStringExtra("mountainheights");
+        String message3 = intent.getStringExtra("mountainlocations");
 
-        Toast.makeText(getApplicationContext(),message , Toast.LENGTH_LONG).show();
-        Log.d("Céline", "jag fick detta "+message);
+        //Toast.makeText(getApplicationContext(),message , Toast.LENGTH_LONG).show();
+        //Log.d("Céline", "jag fick detta "+message);
 
         TextView bergsnamn = (TextView) findViewById(R.id.mountainnames);
         bergsnamn.setText(message);
 
         TextView bergshojd = (TextView) findViewById(R.id.mountainheights);
         bergshojd.setText(message2);
+
+        TextView bergsposition = (TextView) findViewById(R.id.mountainlocations);
+        bergsposition.setText(message3);
     }
 
 }

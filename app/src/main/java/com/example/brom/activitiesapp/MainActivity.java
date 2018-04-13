@@ -56,12 +56,13 @@ public class MainActivity extends AppCompatActivity {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, mountainNames[position] + mountainHeights[position]  + mountainLocations[position], Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, mountainNames[position] + mountainHeights[position]  + mountainLocations[position], Toast.LENGTH_SHORT).show();
 
 
                 Intent intent = new Intent(getApplicationContext(), MountainDetailsActivity.class);
                 intent.putExtra("mountainnames", mountainNames[position]);
                 intent.putExtra("mountainheights", Integer.toString(mountainHeights[position]));
+                intent.putExtra("mountainlocations", mountainLocations[position]);
                 startActivity(intent);
 
 
