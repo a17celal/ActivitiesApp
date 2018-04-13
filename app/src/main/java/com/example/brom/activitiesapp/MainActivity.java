@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
     private String[] mountainLocations = {"Alps","Alps","Alaska"};
     private int[] mountainHeights ={4478,4808,6190};
 
+    //private Mountains m = new Mountains("Matterhorn", "Alps", 4478);
+
+    private List<Mountains> namnen = new ArrayList<Mountains>();
+
     // Create ArrayLists from the raw data above and use these lists when populating your ListView.
 
     @Override
@@ -46,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         //    left arro button. This is done by letting the MainActivity be the parent activity to
         //    MountainDetailsActivity.
 
+        for (int i=0; i<mountainNames.length;i++){
+             Mountains m = new Mountains(mountainNames[i],mountainLocations[i], mountainHeights[i]);
+            namnen.add(m);
+        }
 
         List<String> listData = new ArrayList<String>(Arrays.asList(mountainNames));
 
@@ -56,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Toast.makeText(MainActivity.this, namnen.get(position).toString(), Toast.LENGTH_SHORT).show();
                 //Toast.makeText(MainActivity.this, mountainNames[position] + mountainHeights[position]  + mountainLocations[position], Toast.LENGTH_SHORT).show();
 
 
