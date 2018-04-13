@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Mountains n = namnen.get(position);
-                Toast.makeText(MainActivity.this,n.fakta(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,n.fakta(), Toast.LENGTH_LONG).show();
                 //Toast.makeText(MainActivity.this, mountainNames[position] + mountainHeights[position]  + mountainLocations[position], Toast.LENGTH_SHORT).show();
 
 
