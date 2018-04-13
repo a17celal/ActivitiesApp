@@ -58,21 +58,21 @@ public class MainActivity extends AppCompatActivity {
         List<String> listData = new ArrayList<String>(Arrays.asList(mountainNames));
 
         ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),R.layout.list_item_textview,
-                R.id.my_item_textview, listData);
+                R.id.my_item_textview, namnen);
 
         ListView myListView = (ListView)findViewById(R.id.my_listview);
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Toast.makeText(MainActivity.this, namnen.get(position).toString(), Toast.LENGTH_SHORT).show();
+            Mountains n = namnen.get(position);
+                Toast.makeText(MainActivity.this,n.fakta(), Toast.LENGTH_SHORT).show();
                 //Toast.makeText(MainActivity.this, mountainNames[position] + mountainHeights[position]  + mountainLocations[position], Toast.LENGTH_SHORT).show();
 
 
                 Intent intent = new Intent(getApplicationContext(), MountainDetailsActivity.class);
-                intent.putExtra("mountainnames", mountainNames[position]);
-                intent.putExtra("mountainheights", Integer.toString(mountainHeights[position]));
-                intent.putExtra("mountainlocations", mountainLocations[position]);
+                intent.putExtra("mountainnames", n.toString());
+                intent.putExtra("mountainheights", n.hojd());
+                intent.putExtra("mountainlocations", n.plats());
                 startActivity(intent);
 
 
