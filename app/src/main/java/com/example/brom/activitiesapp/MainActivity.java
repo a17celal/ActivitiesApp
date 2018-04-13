@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
             namnen.add(m);
         }
 
+        Mountains b = new Mountains("Keb", "swe", 2117);
+        namnen.add(b);
+
         List<String> listData = new ArrayList<String>(Arrays.asList(mountainNames));
 
         ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),R.layout.list_item_textview,
